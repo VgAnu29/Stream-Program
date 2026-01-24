@@ -31,5 +31,16 @@ public class GroupingWithStream
         employess.forEach(System.out::println);
         System.out.println();
     });
+
+        Map<Integer,Long> count = empList.stream()
+                .collect(Collectors.groupingBy(Employee::getDeptNo,Collectors.counting()));
+
+        System.out.println("count Employee by deptNo.." + count);
+
+        Map<String,Long> count1 = empList.stream()
+                .collect(Collectors.groupingBy(Employee::getEmpName,Collectors.counting()));
+
+        System.out.println("count Employee by Name.." + count1);
+
     }
 }
